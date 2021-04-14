@@ -8,15 +8,15 @@ double ElementoMayoria(int Arreglo[], int N);
 int main()
 {
     int N;
-    double Mayoria;
+    double MayoriaOcurrencias;
     cout << "Cantidad de enteros del arreglo: ";
     cin >> N;
     int Arreglo[N];
     CargarArreglo(Arreglo, N);
-    Mayoria=ElementoMayoria(Arreglo,N);
-    if (Mayoria==0.1){
+    MayoriaOcurrencias=ElementoMayoria(Arreglo,N);
+    if (MayoriaOcurrencias==-1){
         cout << "No existe un elemento mayoria";
-    }else cout << "El elemento mayoria es: " << Mayoria;
+    }else cout << "El elemento mayoria aparece: " << MayoriaOcurrencias << " veces";
     return 0;
 }
 
@@ -28,17 +28,15 @@ void CargarArreglo (int Arreglo[], int N){
 }
 
 double ElementoMayoria(int Arreglo[], int N){
-    double Mayoria;
     int i=0, Ocurrencias=0;
     bool Encontrado = false;
     while (i<N && !Encontrado){
-        Mayoria=Arreglo[i];
         for (int j=i; j<N;j++){
-            if (Arreglo[j]==Mayoria){
+            if (Arreglo[j]==Arreglo[i]){
                 Ocurrencias++;
             }
         }
-        if (Ocurrencias>N/2 +1){
+        if (Ocurrencias>N/2){
             Encontrado=true;
         }else {
             i++;
@@ -46,6 +44,6 @@ double ElementoMayoria(int Arreglo[], int N){
         }
     }
     if (Encontrado){
-        return Mayoria;
-    }else return 0.1;
+        return Ocurrencias;
+    }else return -1;
 }
