@@ -3,7 +3,7 @@
 using namespace std;
 
 void CargarArreglo (int Arreglo[], int N);
-double ElementoMayoria(int Arreglo[], int N);
+int ElementoMayoria(int Arreglo[], int N);
 
 int main()
 {
@@ -27,7 +27,7 @@ void CargarArreglo (int Arreglo[], int N){
     }
 }
 
-double ElementoMayoria(int Arreglo[], int N){
+int ElementoMayoria(int Arreglo[], int N){
     int i=0, Ocurrencias=0;
     bool Encontrado = false;
     while (i<N && !Encontrado){
